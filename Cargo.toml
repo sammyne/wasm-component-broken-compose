@@ -1,0 +1,14 @@
+[workspace]
+members = [
+  "adder",
+  "calculator",
+]
+
+resolver = "2"
+
+[workspace.dependencies]
+anyhow = "1.0.82"
+wasm-bindgen = "0.2.92"
+wasmtime = "20.0.0"
+wasmtime-wasi = "20.0.0"
+wit-bindgen = "0.25.0"

@@ -1,0 +1,11 @@
+package docs:calculator@0.1.0;
+
+interface hi {
+  use docs:adder/api@0.1.0.{wallet};
+
+  greet: func(a: wallet);
+}
+
+world xml-hello {
+  export hi;
+}
