@@ -10,6 +10,11 @@ This repository demonstrates a broken composition of WASM components.
 
 ## Reproduction
 
+1. Setup WIT dependencies
+    ```bash
+    mkdir -p calculator/wit/deps
+    cp -r adder/wit calculator/wit/deps/adder
+    ```
 1. Build the WASM modules
     ```bash
     cargo build --release -p adder
