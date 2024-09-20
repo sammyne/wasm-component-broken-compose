@@ -42,3 +42,4 @@ clean:
 	@rm -rf $(OUT_DIR)
 	@rm -rf adder/wit/deps
 	@rm -rf calculator/wit/deps
+	@cargo clean

@@ -2,7 +2,7 @@ package docs:adder@0.1.0;
 
 interface api {
     use types.{balance};
-
+    
     variant wallet {
         btc(balance),
         eth(balance),

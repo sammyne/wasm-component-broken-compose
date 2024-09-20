@@ -1,12 +1,14 @@
 mod bindings {
-    wit_bindgen::generate!({});
+    wit_bindgen::generate!({
+        world: "docs-adder"
+    });
 
     use crate::App;
 
     export!(App);
 }
 
-use bindings::exports::docs::adder::api::{Wallet, Guest};
+use bindings::exports::docs::adder::api::{Guest, Wallet};
 
 struct App;
 
