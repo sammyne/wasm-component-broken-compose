@@ -1,12 +1,7 @@
 package docs:calculator@0.1.0;
 
 interface hi {
-  use docs:adder/types@0.1.0.{balance};
-
-  variant wallet {
-      btc(balance),
-      eth(balance),
-  }
+  use docs:adder/api-types@0.1.0.{wallet};
 
   greet: func(a: wallet);
 }
@@ -15,5 +10,4 @@ world xml-hello {
   export hi;
 
   import docs:adder/api@0.1.0;
-  import docs:adder/types@0.1.0;
 }

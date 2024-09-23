@@ -8,7 +8,8 @@ mod bindings {
     export!(App);
 }
 
-use bindings::exports::docs::adder::api::{Guest, Wallet};
+use bindings::docs::adder::api_types::Wallet;
+use bindings::exports::docs::adder::api::Guest;
 
 struct App;
 

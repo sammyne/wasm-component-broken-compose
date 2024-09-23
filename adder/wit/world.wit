@@ -1,14 +1,19 @@
 package docs:adder@0.1.0;
 
 interface api {
+    use api-types.{wallet};
+    
+
+    incr: func(self: wallet, value: u64) -> result<wallet, string>;
+}
+
+interface api-types {
     use types.{balance};
     
     variant wallet {
         btc(balance),
         eth(balance),
     }
-
-    incr: func(self: wallet, value: u64) -> result<wallet, string>;
 }
 
 interface types {

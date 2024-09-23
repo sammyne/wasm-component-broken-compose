@@ -7,8 +7,8 @@ mod bindings {
 }
 
 use bindings::docs::adder::api;
+use bindings::docs::adder::api_types::Wallet;
 use bindings::exports::docs::calculator::hi::Guest;
-use bindings::exports::docs::calculator::hi::Wallet;
 
 struct App;
 
@@ -17,15 +17,6 @@ impl Guest for App {
         match api::incr(a.into(), 123) {
             Ok(_) => println!("ok"),
             Err(_) => println!("err"),
-        }
-    }
-}
-
-impl From<Wallet> for api::Wallet {
-    fn from(value: Wallet) -> Self {
-        match value {
-            Wallet::Btc(balance) => Self::Btc(balance),
-            Wallet::Eth(balance) => Self::Eth(balance),
         }
     }
 }
