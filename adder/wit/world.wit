@@ -3,7 +3,6 @@ package docs:adder@0.1.0;
 interface api {
     use api-types.{wallet};
     
-
     incr: func(self: wallet, value: u64) -> result<wallet, string>;
 }
 
@@ -24,4 +23,6 @@ interface types {
 
 world docs-adder {
     export api;
+    export api-types;
+    export types;
 }

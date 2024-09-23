@@ -21,7 +21,8 @@ $(OUT_DIR)/calculator-component.wasm: $(OUT_DIR)/calculator.wasm
 	@wasm-tools component new $< -o $@ --adapt /opt/wasmtime/adapter-modules/wasi_snapshot_preview1.reactor.wasm
 
 $(OUT_DIR)/calculator-composed.wasm: $(OUT_DIR)/calculator-component.wasm $(OUT_DIR)/adder-component.wasm
-	@wasm-tools compose $(word 1, $^) -d $(word 2, $^) -o $@
+#	wasm-tools compose $(word 1, $^) -d $(word 2, $^) -o $@
+	wac plug $(word 1, $^) --plug $(word 2, $^) -o $@
 
 $(OUT_DIR)/calculator.wasm: calculator/wit/deps/adder
 
@@ -36,6 +37,9 @@ fmt:
 
 run: $(OUT_DIR)/app.wasm
 	@wasmtime run $<
+
+hello:
+	wac plug $(OUT_DIR)/calculator-component.wasm --plug $(OUT_DIR)/adder-component.wasm -o $(OUT_DIR)/hello.wasm
 
 .PHONY: clean
 clean:

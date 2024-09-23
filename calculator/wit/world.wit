@@ -1,13 +1,23 @@
 package docs:calculator@0.1.0;
 
 interface hi {
+  use types.{btc-or-eth-wallet};
+
+  variant player {
+    alice(btc-or-eth-wallet),
+    bob(btc-or-eth-wallet),
+  } 
+}
+
+interface types {
   use docs:adder/api-types@0.1.0.{wallet};
 
-  greet: func(a: wallet);
+  record btc-or-eth-wallet {
+    w: wallet,
+  }
 }
 
 world xml-hello {
   export hi;
-
-  import docs:adder/api@0.1.0;
+  export types;
 }

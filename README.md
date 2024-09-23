@@ -35,28 +35,15 @@ This repository demonstrates a broken composition of WASM components.
     ```
 1. Compose
     ```bash
-    wasm-tools compose _out/calculator-component.wasm -d _out/adder-component.wasm -o _out/calculator-composed.wasm
+    wac plug _out/calculator-component.wasm --plug _out/adder-component.wasm -o _out/calculator-composed.wasm
     ```
     Log outputs as follow
     ```bash
-    WARNING: `wasm-tools compose` has been deprecated.
-
-    Please use `wac` instead. You can find more information about `wac` at https://github.com/bytecodealliance/wac.
-    [2024-09-18T02:46:09Z WARN ] instance `docs:adder/types@0.1.0` will be imported because a dependency named `docs:adder/types@0.1.0` could not be found
-    [2024-09-18T02:46:09Z WARN ] instance `wasi:cli/environment@0.2.0` will be imported because a dependency named `wasi:cli/environment@0.2.0` could not be found
-    [2024-09-18T02:46:09Z WARN ] instance `wasi:cli/exit@0.2.0` will be imported because a dependency named `wasi:cli/exit@0.2.0` could not be found
-    [2024-09-18T02:46:09Z WARN ] instance `wasi:io/error@0.2.0` will be imported because a dependency named `wasi:io/error@0.2.0` could not be found
-    [2024-09-18T02:46:09Z WARN ] instance `wasi:io/streams@0.2.0` will be imported because a dependency named `wasi:io/streams@0.2.0` could not be found
-    [2024-09-18T02:46:09Z WARN ] instance `wasi:cli/stdin@0.2.0` will be imported because a dependency named `wasi:cli/stdin@0.2.0` could not be found
-    [2024-09-18T02:46:09Z WARN ] instance `wasi:cli/stdout@0.2.0` will be imported because a dependency named `wasi:cli/stdout@0.2.0` could not be found
-    [2024-09-18T02:46:09Z WARN ] instance `wasi:cli/stderr@0.2.0` will be imported because a dependency named `wasi:cli/stderr@0.2.0` could not be found
-    [2024-09-18T02:46:09Z WARN ] instance `wasi:clocks/wall-clock@0.2.0` will be imported because a dependency named `wasi:clocks/wall-clock@0.2.0` could not be found
-    [2024-09-18T02:46:09Z WARN ] instance `wasi:filesystem/types@0.2.0` will be imported because a dependency named `wasi:filesystem/types@0.2.0` could not be found
-    [2024-09-18T02:46:09Z WARN ] instance `wasi:filesystem/preopens@0.2.0` will be imported because a dependency named `wasi:filesystem/preopens@0.2.0` could not be found
-    error: failed to validate output component `_out/calculator-composed.wasm`
+    error: encoding produced a component that failed validation
 
     Caused by:
-        0: instance not valid to be used as export (at offset 0x2a8b7)
+        instance not valid to be used as export (at offset 0x19310)
+    make: *** [Makefile:25: /github.com/sammyne/wasm-component-broken-compose/_out/calculator-composed.wasm] Error 1
     ```
     **INDICATING THE COMPOSED COMPONENT IS INVALID.**
 
